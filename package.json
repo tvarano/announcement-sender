@@ -1,0 +1,19 @@
+{
+  "name": "sourcery-social",
+  "version": "0.1.0",
+  "description": "A social media bot for Open Sourcery outreach on Discord, GroupMe, Twitter, and Email",
+  "main": "src/social.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thomas Varano",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "dotenv": "^8.2.0",
+    "fs": "0.0.1-security",
+    "groupme": "^0.5.8",
+    "twitter": "^1.7.1",
+    "uws": "^100.0.1"
+  }
+}
