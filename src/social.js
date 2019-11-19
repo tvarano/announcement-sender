@@ -7,10 +7,7 @@ gmail
 // .env
 
 const dr = require('./dataRetrieval')
-const PWORD = "pword"
 require('dotenv').config()
-
-
 
 // initialize groupme
 const groupme = require('groupme').Stateless
@@ -100,7 +97,7 @@ readFlags = function(text, deft) {
     let quoteInd = text.indexOf('\"')
     for(var i=0; i<quoteInd - 1;i++) {
         if (text[i] === "-") {
-            if (text[i + 1] === 'a') return deft        // if -a, return all, which is the default if available
+            if (text[i + 1] === 'a') return deft        // if -a, return all, which is the default if available it's given
             if (text[i + 1] === 'd')
                 rets.push('discord')
             else if (text[i + 1] === 'g')
@@ -132,7 +129,7 @@ passwordValid = function(text) {
     // just find that and return if it matches the password on file
     let index = text.lastIndexOf('\"', text.length - 2)
     if (index == -1) throw new Error("malformed message")
-    return text.substring(index + 1, text.length - 1) == PWORD
+    return text.substring(index + 1, text.length - 1) == process.env.PWORD
 }
 
 /** 
@@ -168,7 +165,7 @@ sendGroupMeAnnouncement = async function(announcement, perform) {
     let opts = {              // args for the message being sent
         message:{
             source_guid: "GUID",
-            text:announcement,      // text send
+            text:`Hi Everyone! ${announcement}`,      // text send
             // attachments:[
             //     {type:"image", url:"https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"}
             // ]
